@@ -1,0 +1,13 @@
+_target_: src.data.partial_labels_datamodule.PartialMLDataModule
+dataset_name: 'coco'
+batch_size: 16
+num_workers: 4
+partial_mode: 'SP'
+val_frac: 0.2
+split_seed: 1200
+ss_frac_val: 1.0
+ss_frac_train: 1.0
+ss_seed: 999
+num_classes: 80
+pin_memory: True
+label_proportion: 0.6

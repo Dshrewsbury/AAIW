@@ -1,0 +1,39 @@
+# @package _global_
+
+# to execute this experiment run:
+# python train.py experiment=example
+
+defaults:
+  - override /data: pascal
+  - override /model: CLIP
+  - override /callbacks: default
+  - override /trainer: ddp
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters
+
+tags: ["label_noise"]
+
+seed: 12345
+
+model:
+  ema: False
+  creg: True
+  backbone: 'ViT-B/16'
+  loss_function: 'splc'
+  uncertainty: True
+
+data:
+  label_proportion: 0.5
+  partial_mode: 'random'
+trainer:
+  max_epochs: 20
+
+
+
+#logger:
+#  wandb:
+#    tags: ${tags}
+#    group: "pascal"
+#  aim:
+#    experiment: "pascal"

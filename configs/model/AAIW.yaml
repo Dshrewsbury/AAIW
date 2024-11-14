@@ -1,0 +1,19 @@
+_target_: src.models.AAIW.AAIWModule
+
+loss_function: 'splc'
+fix_layer: 10
+weight_decay: 0.05
+layer_decay: 0.65
+lr: 2e-3
+min_lr: 1e-6
+#topk: 16
+warmup_epochs: 2
+num_classes: ${data.num_classes}
+epochs: ${trainer.max_epochs}
+localpatch_topk: 16
+cos_topk: 15
+creg_topk: 15
+creg_delta: 0.9
+example_num: 100
+#num_classes: 20
+dataset: 'pascal'
